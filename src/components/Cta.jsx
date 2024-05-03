@@ -9,6 +9,13 @@ const CTA = () => (
         Everything you need to accept card payments and grow your business
         anywhere on the planet.
       </p>
+
+      {/* Add the additional information here */}
+      <div className="text-white mt-5">
+        <p>3800+ User Active</p>
+        <p>230+ Trusted by Company</p>
+        <p>$230M+ Transaction</p>
+      </div>
     </div>
 
     <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>

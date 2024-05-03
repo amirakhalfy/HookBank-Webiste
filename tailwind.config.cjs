@@ -3,17 +3,17 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   mode: "jit",
   theme: {
-    extend: {
+
       colors: {
-        primary: "#00040f",
-        secondary: "#00f6ff",
         dimWhite: "rgba(255, 255, 255, 0.7)",
-        dimBlue: "rgba(9, 151, 124, 0.1)",
+        blackGold: {
+          DEFAULT: 'linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,1)), rgba(255, 215, 0, 0.9)' // black gradient to gold
+        }
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
-    },
+    
     screens: {
       xs: "480px",
       ss: "620px",

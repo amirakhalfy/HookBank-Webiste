@@ -7,15 +7,15 @@ export const navLinks = [
   },
   {
     id: "features",
-    title: "Features",
+    title: "Carthago credit scoring",
   },
   {
     id: "product",
-    title: "Product",
+    title: "About us",
   },
   {
     id: "clients",
-    title: "Clients",
+    title: "Login",
   },
 ];
 
