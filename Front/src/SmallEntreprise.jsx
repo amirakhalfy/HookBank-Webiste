@@ -1,13 +1,19 @@
-import styles from "./style";
-import {  LoginForm  } from "./components";
-import {Footer} from "./components";
-import {Navbar} from "./components"
+import { SmallEntrepriseForm , Navbar , SmallEntrepriseScore } from "./components";
+import { useParams } from 'react-router-dom';
 
 
-const SmallEntreprise = () => (
-  <div className="bg-primary w-full overflow-hidden">
-        Welcome into Small Etreprise
-  </div>
-);
+const SmallEntreprise = () => {
+  const { user_id } = useParams();
+  
+  return (
+      <div className="bg-primary w-full overflow-hidden">
+        <p>{user_id}</p>
+          <Navbar />
+          <SmallEntrepriseForm user_id={user_id} />
+          <SmallEntrepriseScore user_id={user_id}/>
+          <p>Welcome into Small Etreprise</p>
+      </div>
+  );
+};
 
 export default SmallEntreprise;

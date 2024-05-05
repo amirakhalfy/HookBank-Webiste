@@ -1,13 +1,14 @@
 import "./LoginForm.css";
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 
 function LoginForm({ onLoginSuccess }) {
   const initialValues = {
     emailOrUsername: "",
     password: "",
   };
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -36,6 +37,8 @@ function LoginForm({ onLoginSuccess }) {
         console.log(data); // Log the response from the server
         setUserData(data); // Update state with user data
         onLoginSuccess(data); // Call the onLoginSuccess function with user data
+        // Redirect to SmallEntreprise page with user_id as parameter
+        navigate(`/SmallEntreprise/${data.users[0].id}`); 
       } catch (error) {
         console.error('There was a problem with your fetch operation:', error);
       }
@@ -66,7 +69,7 @@ function LoginForm({ onLoginSuccess }) {
          <video autoPlay loop muted playsInline>
           <source src="Video.mp4"  type="video/mp4" className="Background-video"/>
         </video>
-        <form onSubmit={handleSubmit}>
+        <form className="form-login" onSubmit={handleSubmit}>
             <h3>Login Here</h3>
 
             <label htmlFor="username">Username</label>

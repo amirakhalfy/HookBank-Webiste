@@ -2,6 +2,7 @@ from flask import request, jsonify
 from config import app, db
 from Controller.smallEtreprisesController import *
 from Controller.userController import *
+from Controller.scoreController import *
 
 if __name__ == "__main__":
     with app.app_context():

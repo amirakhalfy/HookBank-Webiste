@@ -127,16 +127,30 @@ def update_small_enterprise(enterprise_id):
     if not enterprise:
         return jsonify({"message": "Small enterprise not found"}), 404
 
-    data = request.json
-    enterprise.term = data.get("term", enterprise.term)
-    enterprise.no_emp = data.get("noEmp", enterprise.no_emp)
-    enterprise.new_exist = data.get("newExist", enterprise.new_exist)
-    enterprise.retained_job = data.get("retainedJob", enterprise.retained_job)
-    enterprise.rev_line_cr = data.get("revLineCr", enterprise.rev_line_cr)
-    enterprise.low_doc = data.get("lowDoc", enterprise.low_doc)
-    enterprise.gr_appv = data.get("grAppv", enterprise.gr_appv)
-    enterprise.sba_appv = data.get("sbaAppv", enterprise.sba_appv)
-    enterprise.naics_0 = data.get("naics0", enterprise.naics_0)
+    try:
+        data = request.json
+        enterprise.entrepriseName = data.get("entrepriseName", enterprise.entrepriseName)
+        enterprise.term = data.get("term", enterprise.term)
+        enterprise.no_emp = data.get("noEmp", enterprise.no_emp)
+        enterprise.new_exist = data.get("newExist", enterprise.new_exist)
+        enterprise.retained_job = data.get("retainedJob", enterprise.retained_job)
+        enterprise.rev_line_cr = data.get("revLineCr", enterprise.rev_line_cr)
+        enterprise.low_doc = data.get("lowDoc", enterprise.low_doc)
+        enterprise.gr_appv = data.get("grAppv", enterprise.gr_appv)
+        enterprise.sba_appv = data.get("sbaAppv", enterprise.sba_appv)
+        enterprise.naics_0 = data.get("naics0", enterprise.naics_0)
+        enterprise.naics_31_33 = data.get("naics31-33", enterprise.naics_31_33)
+        enterprise.naics_62 = data.get("naics62", enterprise.naics_62)
+
+        
+        db.session.commit()
+        
+        return jsonify({"message": "Small enterprise updated successfully"}), 200
+    
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"message": f"Failed to update small enterprise: {str(e)}"}), 500
+
 
 
 @app.route("/delete_small_enterprise/<int:enterprise_id>", methods=["DELETE"])

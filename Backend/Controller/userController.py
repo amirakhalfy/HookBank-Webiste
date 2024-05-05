@@ -3,6 +3,10 @@ from config import app, db
 from models import User
 
 
+
+
+
+
 @app.route("/create_user", methods=["POST"])
 def create_user():
     email = request.json.get("email")
@@ -29,6 +33,11 @@ def get_users():
     users = User.query.all()
     json_users = [{"id": user.id, "email": user.email, "role": user.role.value} for user in users]
     return jsonify({"users": json_users})
+
+
+@app.route("/", methods=["GET"])
+def get_userss():
+    return jsonify({"hello": "Hellooo"})
 
 @app.route("/get_user_by_email_password/<user_email>/<user_password>", methods=["GET"])
 def get_user_by_email_password(user_email, user_password):

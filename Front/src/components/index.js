@@ -11,6 +11,10 @@ import Hero from "./Hero";
 import GetStarted from './GetStarted'
 import FeedbackCard from "./FeedBackCard";
 import LoginForm from "./LoginForm";
+import SmallEntrepriseForm from "./SmallEntrepriseForm";
+import SmallEntrepriseScore from "./SmallEntrepriseScore"
+
+
 
 export {
   Navbar,
@@ -25,5 +29,7 @@ export {
   Hero,
   GetStarted,
   FeedbackCard,
-  LoginForm
+  LoginForm,
+  SmallEntrepriseForm,
+  SmallEntrepriseScore
 };

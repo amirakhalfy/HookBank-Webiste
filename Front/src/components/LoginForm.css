@@ -44,7 +44,7 @@
     right: -30px;
     bottom: -80px;
 }
-form{
+.form-login{
     height: 520px;
     width: 400px;
     background-color: rgba(27, 22, 7, 0.605);
