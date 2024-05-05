@@ -12,6 +12,7 @@ def create_user():
     email = request.json.get("email")
     password = request.json.get("password")
     role = request.json.get("role")
+    access = request.json.get("access")
 
     if not email or not password or not role:
         return (
@@ -19,7 +20,7 @@ def create_user():
             400,
         )
 
-    new_user = User(email=email, password=password, role=role)
+    new_user = User(email=email, password=password, role=role, access = access)
     try:
         db.session.add(new_user)
         db.session.commit()
@@ -31,13 +32,9 @@ def create_user():
 @app.route("/users", methods=["GET"])
 def get_users():
     users = User.query.all()
-    json_users = [{"id": user.id, "email": user.email, "role": user.role.value} for user in users]
+    json_users = [{"id": user.id, "email": user.email, "role": user.role.value , "access" : user.access} for user in users]
     return jsonify({"users": json_users})
 
-
-@app.route("/", methods=["GET"])
-def get_userss():
-    return jsonify({"hello": "Hellooo"})
 
 @app.route("/get_user_by_email_password/<user_email>/<user_password>", methods=["GET"])
 def get_user_by_email_password(user_email, user_password):
@@ -46,7 +43,7 @@ def get_user_by_email_password(user_email, user_password):
     if not users:
         return jsonify({"message": "No user found for the given email and password"}), 404
 
-    json_users = [{"id": user.id, "email": user.email, "role": user.role.value} for user in users]
+    json_users = [{"id": user.id, "email": user.email, "role": user.role.value, "access" : user.access} for user in users]
 
     return jsonify({"users": json_users})
 
@@ -64,6 +61,7 @@ def update_user(user_id):
     user.email = data.get("email", user.email)
     user.password = data.get("password", user.password)
     user.role = data.get("role", user.role)
+    user.access = data.get("access" , user.access)
 
     db.session.commit()
 
