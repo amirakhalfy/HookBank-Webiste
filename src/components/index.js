@@ -10,6 +10,7 @@ import Testimonials from "./Testimonials";
 import Hero from "./Hero";
 import GetStarted from './GetStarted'
 import FeedbackCard from "./FeedBackCard";
+import Test from "./Test"
 
 export {
   Navbar,
@@ -23,5 +24,6 @@ export {
   Testimonials,
   Hero,
   GetStarted,
-  FeedbackCard
+  FeedbackCard,
+  Test
 };
