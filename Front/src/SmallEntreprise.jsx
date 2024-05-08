@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+import { SmallEntrepriseForm , Navbar , SmallEntrepriseScore,ChatBot ,Footer} from "./components";
+=======
 import { SmallEntrepriseForm , Navbar , SmallEntrepriseScore } from "./components";
+>>>>>>> parent of 373790f (adding chat bot)
 import { useParams } from 'react-router-dom';
 
 
@@ -7,11 +11,17 @@ const SmallEntreprise = () => {
   
   return (
       <div className="bg-primary w-full overflow-hidden">
-        <p>{user_id}</p>
-          <Navbar />
+        <Navbar/>
+        <ChatBot user_id={user_id}/>
           <SmallEntrepriseForm user_id={user_id} />
           <SmallEntrepriseScore user_id={user_id}/>
+<<<<<<< HEAD
+          
+          <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+          <Footer/>
+=======
           <p>Welcome into Small Etreprise</p>
+>>>>>>> parent of 373790f (adding chat bot)
       </div>
   );
 };

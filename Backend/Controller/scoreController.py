@@ -1,7 +1,7 @@
 from flask import request, jsonify
 import joblib
 from config import app, db
-from models import SmallEntreprise
+from models import SmallEntreprise , User
 import numpy as np
 import pandas as pd
 
@@ -44,12 +44,9 @@ def preprocess_input(user_data, bin_intervals, woe_values):
 def predict_score(user_data, bin_intervals, woe_values, rf):
     user_woe = preprocess_input(user_data, bin_intervals, woe_values)
     user_woe_df = pd.DataFrame([user_woe])
-    user_pred = rf.predict_proba(user_woe_df)[:, 1]
+    user_pred = 1 - rf.predict_proba(user_woe_df)[:, 1]
     user_score = custom_scorecard(user_pred)
     return user_score[0]
-
-# Example user data
-example_user_data = [3, 2, 70, 55000, 1, 1, 0, 35000, 1]
 
 # Example bin intervals and WOE values
 bin_intervals = {
@@ -76,10 +73,13 @@ woe_values = {
     'LowDoc': [1.118207, -0.100633]
 }
 
+
+
+
 @app.route("/ScoreSmallEntreprise/<int:user_id>", methods=["GET"])
 def Score_Small_Entreprise(user_id):
     enterprises = SmallEntreprise.query.filter_by(id_User=user_id).all()
-
+    user = User.query.filter_by(id =user_id)
     if not enterprises:
         return jsonify({"message": "No enterprises found for the given user ID"}), 404
 

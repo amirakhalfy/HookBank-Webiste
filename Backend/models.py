@@ -13,6 +13,7 @@ class User(db.Model):
     password = db.Column(db.String, nullable=False)
     role = db.Column(db.Enum(Role), nullable=False)
     access = db.Column(db.String(40), nullable=False)
+    loan_amount = db.Column(db.Integer)
     
 
 class SmallEntreprise(db.Model):

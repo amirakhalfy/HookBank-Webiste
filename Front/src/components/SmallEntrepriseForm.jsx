@@ -106,8 +106,7 @@ const SmallEntrepriseForm = ({ user_id }) => {
     return (
         <div>
             <form onSubmit={handlePopupSubmit}>
-                {/* Form fields go here */}
-                <button type="submit">Open Pop-up</button>
+                <button type="submit" className="py-4 px-6 font-poppins font-medium text-[18px] text-primary bg-blue-gradient rounded-[10px] outline-none">Open Pop-up</button>
             </form>
             {showPopup && (
                 <div className="popup" ref={popupRef}>

@@ -20,7 +20,7 @@ def create_user():
             400,
         )
 
-    new_user = User(email=email, password=password, role=role, access = access)
+    new_user = User(email=email, password=password, role=role, access = access, loan_amount = None)
     try:
         db.session.add(new_user)
         db.session.commit()
@@ -32,7 +32,7 @@ def create_user():
 @app.route("/users", methods=["GET"])
 def get_users():
     users = User.query.all()
-    json_users = [{"id": user.id, "email": user.email, "role": user.role.value , "access" : user.access} for user in users]
+    json_users = [{"id": user.id, "email": user.email, "role": user.role.value , "access" : user.access , "loan_amount" : user.loan_amount} for user in users]
     return jsonify({"users": json_users})
 
 
@@ -43,7 +43,7 @@ def get_user_by_email_password(user_email, user_password):
     if not users:
         return jsonify({"message": "No user found for the given email and password"}), 404
 
-    json_users = [{"id": user.id, "email": user.email, "role": user.role.value, "access" : user.access} for user in users]
+    json_users = [{"id": user.id, "email": user.email, "role": user.role.value, "access" : user.access, "loan_amount" : user.loan_amount} for user in users]
 
     return jsonify({"users": json_users})
 
@@ -62,6 +62,21 @@ def update_user(user_id):
     user.password = data.get("password", user.password)
     user.role = data.get("role", user.role)
     user.access = data.get("access" , user.access)
+
+    db.session.commit()
+
+    return jsonify({"message": "User updated."}), 200
+
+
+@app.route("/change_loan_amount/<int:user_id>/loan_amount", methods=["PATCH"])
+def update_loan_amount_user(user_id):
+    user = User.query.get(user_id)
+    loan_amount = request.args.get('loan_amount')
+
+    if not user:
+        return jsonify({"message": "User not found"}), 404
+    
+    user.loan_amount = loan_amount
 
     db.session.commit()
 

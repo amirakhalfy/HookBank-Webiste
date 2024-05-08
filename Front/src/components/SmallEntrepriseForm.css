@@ -23,6 +23,9 @@ label {
     z-index: 9999;
     max-height: 80%;
     overflow: auto; /* Add scroll bar */
+    border-radius: 5%;
+    background-color:  #ceae73;
+    opacity: 0.95;
 }
 
 .popup-content {
