@@ -4,3 +4,5 @@ flask-cors
 Flask-Migrate
 flask_cors
 scikit-learn
+os
+openai

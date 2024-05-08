@@ -13,7 +13,7 @@ import FeedbackCard from "./FeedBackCard";
 import LoginForm from "./LoginForm";
 import SmallEntrepriseForm from "./SmallEntrepriseForm";
 import SmallEntrepriseScore from "./SmallEntrepriseScore"
-
+import ChatBot from "./ChatBot"
 
 
 export {
@@ -31,5 +31,6 @@ export {
   FeedbackCard,
   LoginForm,
   SmallEntrepriseForm,
-  SmallEntrepriseScore
+  SmallEntrepriseScore,
+  ChatBot
 };

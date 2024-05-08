@@ -49,7 +49,6 @@ def get_user_by_email_password(user_email, user_password):
 
 
 
-
 @app.route("/update_user/<int:user_id>", methods=["PATCH"])
 def update_user(user_id):
     user = User.query.get(user_id)

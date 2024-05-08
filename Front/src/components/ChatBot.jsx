@@ -107,7 +107,7 @@ const ChatBot = ({ user_id }) =>  {
       this.messages.slice().reverse().forEach(function(item, index) {
         if (item.name === "Sam")
         {
-          html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
+          html += '<div class="messages__item messages__item--visitor style={{width=100%}}">' + item.message + '</div>'
         }
         else
         {
@@ -128,7 +128,7 @@ const ChatBot = ({ user_id }) =>  {
   return (
     <div className="container">
         <div className="chatbox">
-            <div className="chatbox__support">
+            <div className="chatbox__support" style={{width:"400px"}}>
                 <div className="chatbox__header">
                     <div className="chatbox__image--header">
                         <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image"/>
