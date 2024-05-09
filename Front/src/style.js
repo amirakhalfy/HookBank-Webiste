@@ -13,7 +13,7 @@ const styles = {
   flexCenter: "flex justify-center items-center",
 
   // Début de la flexbox
-  flexStart: "flex justify-center items-start",
+  flexStart: "flex justify-start items-start",
 
   // Padding horizontal
   paddingX: "sm:px-16 px-6",

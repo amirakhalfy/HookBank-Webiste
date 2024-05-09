@@ -36,3 +36,22 @@ class SmallEntreprise(db.Model):
 
     def __repr__(self):
         return f"<SmallEntreprise {self.id_ME}>"
+
+    
+class Individual(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    emp_title = db.Column(db.Float, nullable=False)
+    term = db.Column(db.Float, nullable=False)
+    loan_amnt = db.Column(db.Float, nullable=False)
+    purpose = db.Column(db.Float, nullable=False)
+    home_ownership = db.Column(db.Float, nullable=False)
+    dti = db.Column(db.Float, nullable=False)
+    grade = db.Column(db.Float, nullable=False)
+    annual_inc = db.Column(db.Float, nullable=False)
+    int_rate = db.Column(db.Float, nullable=False)
+
+    user = db.relationship('User', backref=db.backref('individual', lazy=True))
+
+    def __repr__(self):
+        return f"<Individual {self.id_ME}>"

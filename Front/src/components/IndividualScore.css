@@ -1,0 +1,113 @@
+/* IndividualScore.css */
+
+:root {
+    --card-bg-color: #fff;
+    --card-border-radius: 10px;
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --card-padding: 20px;
+    --card-margin: 20px;
+    --button-bg-color: #2980b9;
+    --button-color: #fff;
+    --button-hover-bg-color: #3498db;
+    --button-padding: 10px 15px;
+    --button-border-radius: 5px;
+    --button-font-size: 16px;
+    --progress-size: 100px;
+    --progress-bar-color: #27ae60;
+    --progress-bar-bg-color: #e7f2fa;
+    --progress-bar-border-radius: 100%;
+  }
+  
+  .score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Adjust the height as needed */
+  }
+  
+  .get-score-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-color);
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    font-size: var(--button-font-size);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: background-color 0.3s;
+  }
+  
+  .get-score-button:hover {
+    background-color: var(--button-hover-bg-color);
+  }
+  
+  .rating {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--progress-size);
+    height: var(--progress-size);
+    margin-top: 10px;
+  }
+  
+  .score-progress {
+    width: var(--progress-size);
+    height: var(--progress-size);
+    border-radius: var(--progress-bar-border-radius);
+    background-color: var(--progress-bar-bg-color);
+    position: relative;
+  }
+  
+  .score-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--progress-size);
+    height: var(--progress-size);
+    border-radius: var(--progress-bar-border-radius);
+    background: conic-gradient(
+      var(--progress-bar-color) var(--progress),
+      var(--progress-bar-bg-color) var(--progress)
+    );
+  }
+  
+  /* Circular progress bar styles */
+  @keyframes recharge {
+    from {
+      stroke-dashoffset: 283; /* Full circumference */
+    }
+    to {
+      stroke-dashoffset: var(--final-offset); /* Stop at the score percentage */
+    }
+  }
+  .score-circle {
+    display: block;
+    margin: auto; /* Center the SVG horizontally */
+    position: relative; /* Position the text absolutely within this container */
+  }
+  
+  .score-circle .circle {
+    fill: none;
+    stroke-width: 12; /* Make it thicker */
+    stroke-linecap: round;
+    stroke-dasharray: 283; /* Circumference of the circle */
+    transform-origin: center;
+    animation: recharge 1.5s ease-in-out forwards; /* Animate the recharge */
+  }
+  
+  /* Define gradient colors based on score categories */
+  .score-low { stroke: url(#LowScoreGradient); }
+  .score-medium { stroke: url(#MediumScoreGradient); }
+  .score-high { stroke: url(#HighScoreGradient); }
+  
+  .score-circle .circle-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the text within the SVG */
+    font-size: 2.5rem;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: #333;
+  }

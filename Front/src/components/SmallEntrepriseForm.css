@@ -14,8 +14,9 @@ label {
 .popup {
     position: fixed;
     width: 500px;
-    top: 50%;
-    left: 50%;
+    height: 530px;
+    top: 59%;
+    left: 18%;
     transform: translate(-50%, -50%);
     background-color: white;
     padding: 20px;

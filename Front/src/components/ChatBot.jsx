@@ -4,6 +4,7 @@ import "./ChatBot.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
 
+
 const ChatBot = ({ user_id }) =>  {
   const [question, setQuestion] = useState("");
   const [recording, setRecording] = useState(false); // State to track recording

@@ -2,6 +2,8 @@ import "./LoginForm.css";
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 function LoginForm({ onLoginSuccess }) {
   const initialValues = {
@@ -38,7 +40,17 @@ function LoginForm({ onLoginSuccess }) {
         setUserData(data); // Update state with user data
         onLoginSuccess(data); // Call the onLoginSuccess function with user data
         // Redirect to SmallEntreprise page with user_id as parameter
-        navigate(`/SmallEntreprise/${data.users[0].id}`); 
+        if (data.users[0].access === 'admin') {
+          navigate('/Admin'); // Redirect to the Admin route
+        }
+        else if (data.users[0].role === 'Small') {
+          navigate(`/SmallEntreprise/${data.users[0].id}`);
+        } else if (data.users[0].role === 'Individual') {
+          navigate(`/Individual/${data.users[0].id}`);
+        } 
+        else {
+          // Handle other roles or default action
+        } 
       } catch (error) {
         console.error('There was a problem with your fetch operation:', error);
       }
@@ -80,6 +92,7 @@ function LoginForm({ onLoginSuccess }) {
                 name="emailOrUsername" 
                 value={formValues.emailOrUsername}
                 onChange={handleChange} 
+                style={{color:"white"}}
             />
 
             <label htmlFor="password">Password</label>
@@ -90,17 +103,25 @@ function LoginForm({ onLoginSuccess }) {
                 name="password" 
                 value={formValues.password}
                 onChange={handleChange} 
+                style={{color:"white"}}
             />
 
-            <button type="submit">Log In</button>
+            <button style={{marginLeft:"20%" , marginTop:"30px"}} type="submit" className="btn">
+            <svg style={{top:"63.95%" , marginLeft:"100px"}} width="180px" height="60px" viewBox="0 0 180 60" className="border">
+              <polyline points="179,1 179,59 1,59 1,1 179,1" className="bg-line" />
+              <polyline points="179,1 179,59 1,59 1,1 179,1" className="hl-line" />
+            </svg>
+            <span style={{top:"50%" , right:"50%"}}>Login</span>
+            </button>
             <div className="social">
-                <div className="go"><i className="fab fa-google"></i> Google</div>
-                <div className="fb"><i className="fab fa-facebook"></i>
+                <center>
+                <div style={{marginLeft:"80px"}} className="fb"><i className="fab fa-facebook"></i>
                     <Link to={`/`} className="hover:text-gray-300">
-                        Back 
+                      Home
                     </Link>
                 </div>
-                <div className="fb"><i className="fab fa-facebook"></i> Facebook</div>
+                </center>
+                
             </div>
         </form>
         </div>

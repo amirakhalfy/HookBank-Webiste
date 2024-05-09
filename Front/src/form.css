@@ -1,0 +1,47 @@
+/* form.css */
+.card {
+  background: #ffffff; /* Full white background */
+  border: 3px solid #ffd700; /* Gold border */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 400px;
+  margin: 20px auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input,
+.form button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc; /* You may also change this to gold if you like */
+  outline: none;
+}
+
+.form button {
+  background-color: #ffd700; /* Gold background for the button */
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.form button:hover {
+  background-color: #f0c040; /* Darker gold on hover */
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.8rem;
+}

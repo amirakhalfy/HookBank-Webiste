@@ -10,14 +10,21 @@ const Login = () => {
 
   const handleLoginSuccess = (data) => {
     setUserData(data);
-    if (data.users[0].role === 'Small') {
-      navigate('/SmallEntreprise');
+    if(data.users[0].access === 'admin'){
+      navigate('/Admin');
+    }else{
+      if (data.users[0].role === 'Small') {
+        navigate('/SmallEntreprise');
+      }
+      if (data.users[0].role === 'Individual') {
+        navigate('/Individual');
+      }
     }
+    
   };
 
   return (
     <div className="bg-primary w-full overflow-hidden">
-      <Navbar />
       <LoginForm onLoginSuccess={handleLoginSuccess} />
       <Footer />
     </div>

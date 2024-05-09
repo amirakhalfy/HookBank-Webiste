@@ -14,6 +14,9 @@ import LoginForm from "./LoginForm";
 import SmallEntrepriseForm from "./SmallEntrepriseForm";
 import SmallEntrepriseScore from "./SmallEntrepriseScore"
 import ChatBot from "./ChatBot"
+import PieChart from "./PieChart"
+import IndividualScore from "./IndividualScore"
+import SmallScore from "./SmallScore"
 
 
 export {
@@ -32,5 +35,8 @@ export {
   LoginForm,
   SmallEntrepriseForm,
   SmallEntrepriseScore,
-  ChatBot
+  ChatBot,
+  PieChart,
+  IndividualScore,
+  SmallScore
 };
