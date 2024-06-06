@@ -1,0 +1,118 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; 
+  width: 300px;
+  height: 100%;
+  background-color: #f3f4f6; 
+  padding-top: 60px; 
+  transition: left 0.3s; 
+}
+
+.sidebar.visible {
+  left: 0; 
+}
+
+.logo-container {
+  position: absolute;
+  top: 20px;
+  left: 20px; 
+}
+
+.logo-image {
+  width: 100px; 
+  height: auto; 
+}
+
+.button-wrapper {
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #c4c8aa;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #b9c8d4;
+}
+
+.spacer {
+  height: 20px; 
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); 
+  z-index: 1000; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.dropbox-container {
+  text-align: center; 
+  margin: 10px; 
+}
+
+.dropbox-chooser {
+  background-color: #dadde0; 
+  color: #fff; 
+  padding: 10px 20px; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  font-size: 16px; 
+  font-weight: bold; 
+  text-align: center; 
+}
+
+.dropbox-chooser:hover {
+  background-color: #dac39a; 
+}
+
+.toggle-button {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: beige;
+  cursor: pointer;
+  z-index: 1001; 
+  transition: left 0.3s; 
+}
+
+.toggle-button:before {
+  content: "\2630"; 
+  color: #555; 
+  font-size: 20px;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+}
+
+.toggle-button.moved {
+  left: 310px; 
+}
+
+.button.active {
+  background-color: #dac39a; 
+}

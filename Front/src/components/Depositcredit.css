@@ -1,0 +1,92 @@
+.credit-form {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #F5F5DC; 
+}
+.vocal-button {
+    margin-bottom: 10px; /* Adjust vertical position */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #573E06; 
+}
+
+.form-group input[type="text"] {
+    width: calc(100% - 40px); 
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    color: #573E06; 
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    color: #573E06; 
+}
+
+.icon-button:focus {
+    outline: none;
+}
+
+.icon-container {
+    text-align: center;
+}
+
+.vocal-button,
+.message-button {
+    background: none;
+    border: 2px solid #573E06; 
+    border-radius: 5px;
+    color: #573E06; 
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex; /* Align items center horizontally */
+    align-items: center; /* Align items center vertically */
+}
+
+.vocal-button:hover,
+.message-button:hover {
+    background: #573E06; 
+    color: #fff;
+}
+
+/* Adjust margin-right for the icon to control spacing */
+.vocal-button .icon-button,
+.message-button .icon-button {
+    margin-right: 10px;
+}
+
+.loan-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(to right, rgb(224, 213, 169), rgb(230, 190, 138));
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.loan-button:hover {
+    background: linear-gradient(to right, rgb(245, 235, 198), #c6b49b); 
+}
